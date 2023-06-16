@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+<script>
+    var socket = io();
+    let userName = "";
+    function sendMsg(e) {
+        var form = document.getElementById('form');
+        var input = document.getElementById('input');
+        e.preventDefault();
+        if (input?.value) {
+            socket.emit('chat message', { name: userName, text: input.value });
+            input.value = '';
+        }
+    };
+    function Register(e) {
+        var inputRegister = document.getElementById('inputRegister');
+        e.preventDefault();
+        if (inputRegister?.value) {
+            socket.emit('inputRegister_value', inputRegister.value);
+            inputRegister.value = '';
+        }
+    };
+    socket.on("server-send-msg", function (data) {
+        var messages = document.getElementById('messages');
+        var item = document.createElement('li');
+        item.textContent = "Send By " + data.name + " : " + data.text;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+    })
+    //register-fail
+    socket.on("register-fail", function () {
+        alert("Name da ton tai !")
+    })
+    //register-success
+    socket.on("register-success", function (name) {
+        // alert("Xin chao! " + name)
+        if (name) {
+            userName = name;
+            document.getElementById('formRegister').style.display = "none";
+            document.getElementById('formChat').style.display = "block";
+            document.getElementById('hiUserName').append("Xin Chào " + name + " !")
+        } else {
+            document.getElementById('formChat').style.display = "none";
+            document.getElementById('formRegister').style.display = "block";
+        }
+
+    });
+    window.onload = function () {
+        document.getElementById('formChat').style.display = "none"
+
+    };
+
+    socket.on("server-users-online", function (allUsers) {
+        document.getElementById('allUsers').innerHTML = "Có " + allUsers.length + " người đang online !";
+    })
+    socket.on("server-users-offline", function (allUsers) {
+        document.getElementById('allUsers').innerHTML = "Có " + allUsers.length + " người đang online !";
+    })
+
+</script>
+
+<body>
+    <div id="formRegister">
+        <div>Register Name:</div>
+        <form id="formRegister">
+            <input id="inputRegister" type="text" />
+            <button onclick="Register(event)">Register</button>
+        </form>
+    </div>
+    <div id="formChat">
+        <div id="hiUserName"></div>
+        <div id="allUsers"></div>
+        <div>My chat</div>
+        <form id="form">
+            <input id="input" type="text" />
+            <button onclick="sendMsg(event)">Send</button>
+        </form>
+        <ul id="messages"></ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Wiztech/v15/Server/sqlite3/db.lock
+/.vs/Wiztech/v15/Server/sqlite3/storage.ide-wal
+/.vs/Wiztech/v15/Server/sqlite3/storage.ide-shm
+/.vs/Wiztech/v15/Server/sqlite3/storage.ide
+/.vs/Wiztech/v15/.suo
+/.vs/config/applicationhost.config
+/.vs/VSWorkspaceState.json
+
+bin/
+obj/
+.dotnet/
+.nuget/
+.packages/
+.tools/
+.vs/
+.vscode
+.node_modules
