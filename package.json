@@ -4,15 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./views/trangchu.ejs",
+    "start": "node /views/trangchu.ejs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "builds": [
     {
-      "src": "./views/trangchu.ejs",
+      "src": "/views/trangchu.ejs",
       "use": "@vercel/node"
     }
   ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/views/trangchu.ejs" }
+ ],
   "author": "Vinh.nguyen",
   "license": "ISC",
   "dependencies": {
