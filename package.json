@@ -4,8 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./views/trangchu.ejs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "builds": [
+    {
+      "src": "./views/trangchu.ejs",
+      "use": "@vercel/node"
+    }
+  ],
   "author": "Vinh.nguyen",
   "license": "ISC",
   "dependencies": {
