@@ -2,7 +2,7 @@
   "name": "websocket",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "/views/trangchu.ejs",
   "scripts": {
     "start": "node /views/trangchu.ejs",
     "test": "echo \"Error: no test specified\" && exit 1"
