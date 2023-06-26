@@ -4,12 +4,12 @@
   "description": "",
   "main": "./views/trangchu.ejs",
   "scripts": {
-    "start": "node /views/trangchu.ejs",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "builds": [
     {
-      "src": "/views/trangchu.ejs",
+      "src": "./views/trangchu.ejs",
       "use": "@vercel/node"
     }
   ],
