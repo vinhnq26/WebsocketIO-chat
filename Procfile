@@ -1,1 +1,1 @@
-web: node trangchu.js
+web: node trangchu.ejs
