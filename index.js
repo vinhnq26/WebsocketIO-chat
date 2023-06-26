@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 });
 
 server.listen(process.env.PORT || 3000);
+
 io.on('connection', (socket) => {
     console.log('a user connected  ' + socket.id);
     socket.on('disconnect', () => {
