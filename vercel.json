@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "./views/trangchu.ejs",
+        "src": "trangchu.ejs",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "./views/trangchu.ejs"
+        "dest": "trangchu.ejs"
       }
     ]
   }

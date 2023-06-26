@@ -13,9 +13,6 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    { "src": "/(.*)", "dest": "./views/trangchu.ejs" }
- ],
   "author": "Vinh.nguyen",
   "license": "ISC",
   "dependencies": {

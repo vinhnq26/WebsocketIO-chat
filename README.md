@@ -6,7 +6,7 @@ npm install
 
 ## step 2
 
-node index.js
+node index.js or npm start
 
 ## step 3
 
