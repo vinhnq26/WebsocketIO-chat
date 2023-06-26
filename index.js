@@ -13,9 +13,7 @@ app.get('/', (req, res) => {
   res.render("trangchu");
 });
 
-server.listen(3000, () => {
-  console.log('listening on *:3000');
-});
+server.listen(process.env.PORT || 3000);
 io.on('connection', (socket) => {
     console.log('a user connected  ' + socket.id);
     socket.on('disconnect', () => {
